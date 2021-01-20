@@ -1,6 +1,6 @@
 import { Icon, notification } from 'antd';
 
-export function customeNotice({type, message, description, duration = 3}) {
+export function customNotice({type, message, description, duration = 3}) {
   notification.config({
     top: 75
   });

@@ -1,5 +1,5 @@
 import React from 'react'
-import connect from 'dva'
+import {connect} from 'dva'
 import { Layout } from 'antd';
 
 const { Header, Footer, Sider, Content } = Layout;
