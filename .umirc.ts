@@ -1,8 +1,7 @@
 import { IConfig } from 'umi-types';
 const routes = require( './src/routes');
-const resolve = require( 'path').resolve();
+const path = require( 'path');
 
-// ref: https://umijs.org/config/
 const config: IConfig =  {
   treeShaking: true,
   hash: true,
@@ -37,12 +36,12 @@ const config: IConfig =  {
   },
   // 设置文件夹别名
   alias: {
-    src: resolve(__dirname, './src/'),
-    config: resolve(__dirname, './src/config/'),
-    pages: resolve(__dirname, './src/pages/'),
-    utils: resolve(__dirname, './src/utils/'),
-    services: resolve(__dirname, './src/services/'),
-    assets: resolve(__dirname, './src/assets/'),
+    src: path.resolve(__dirname, './src/'),
+    config: path.resolve(__dirname, './src/config/'),
+    pages: path.resolve(__dirname, './src/pages/'),
+    utils: path.resolve(__dirname, './src/utils/'),
+    services: path.resolve(__dirname, './src/services/'),
+    assets: path.resolve(__dirname, './src/assets/'),
   }
 }
 
