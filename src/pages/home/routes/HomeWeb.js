@@ -1,6 +1,8 @@
 import React from 'react'
 import {connect} from 'dva'
 import { Layout } from 'antd';
+import * as styles from './HomeWeb.less'
+import HeaderTop from '../components/layout/HeaderTop'
 
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -8,10 +10,10 @@ class HomeWeb extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={styles.home_web} id='home_web'>
         <Layout>
-          <Header>Header</Header>
-          <Content>Content</Content>
+          <HeaderTop></HeaderTop>
+          <div className={styles.home_web_content}>Content</div>
           <Footer>Footer</Footer>
         </Layout>
       </div>

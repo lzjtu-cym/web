@@ -26,7 +26,7 @@ let routes = [
 module.exports = [
   {
     path: '/',
-    component: '../layouts/index.tsx',
+    component: '../layouts/index.js',
     routes: routes
   }
 ]
