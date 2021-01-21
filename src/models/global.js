@@ -111,11 +111,11 @@ export default {
       !!_token && dispatch({ type: 'getUserInfo', params: { token: _token } });
     },
     setup({ dispatch, history }) {
-      /*return history.listen(({pathname,search}) => {
-        if (pathname === '/userInfo/routes/userInfoPage') {
-
+      return history.listen(({pathname,search}) => {
+        if (pathname === '/') {
+          window.__NEW_TITLE = "测试项目";
         }
-      })*/
+      })
     },
   },
 };
