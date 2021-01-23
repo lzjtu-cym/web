@@ -2,7 +2,7 @@
   "private": true,
   "name": "web",
   "version": "1.0.0",
-  "description": "",
+  "description": "React + umi + antd +dva",
   "scripts": {
     "start": "set port=8888 && node color && umi dev",
     "build": "node color && umi build",
@@ -26,12 +26,11 @@
     "@types/react-test-renderer": "^16.0.3",
     "antd-theme-generator": "^1.2.3",
     "babel-eslint": "^9.0.0",
-    "eslint": "^5.4.0",
     "eslint-config-umi": "^1.4.0",
     "eslint-plugin-flowtype": "^2.50.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-react": "^7.22.0",
     "husky": "^0.14.3",
     "less": "^4.1.0",
     "less-loader": "^7.3.0",
@@ -53,5 +52,13 @@
   },
   "engines": {
     "node": ">=8.0.0"
-  }
+  },
+  "main": "color.js",
+  "repository": {
+    "type": "git",
+    "url": "git@gitee.com:lzjtu_cym/web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

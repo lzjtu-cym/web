@@ -106,7 +106,7 @@ export default {
       let _userInfo = !!sessionStorage && sessionStorage.accountInfo && JSON.parse(sessionStorage.accountInfo) || {};
       dispatch({
         type: 'getToken',
-        params: { token: _token, appId: _appid, tenantId: _tenantId, roleId: _roleId },
+        params: { token: _token, appId: _appid, tenantId: _tenantId, roleId: _roleId, userInfo: _userInfo },
       });
       !!_token && dispatch({ type: 'getUserInfo', params: { token: _token } });
     },
