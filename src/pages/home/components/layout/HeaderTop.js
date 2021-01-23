@@ -64,11 +64,11 @@ class HeaderTop extends React.Component {
             style={{
               listType: 'none', cursor: 'pointer',
               margin: 0, padding: 0, fontSize: '12px',
-              color: topicId == item.color && topicColor,
+              color: topicId === item.color && topicColor,
             }}
           >
             {item.name}
-            {topicColor == item.color &&
+            {topicColor === item.color &&
             <Icon type="check" style={{ float: 'right', marginTop: '8px', fontSize: '12px' }} />}
           </li>,
         )}
@@ -92,7 +92,7 @@ class HeaderTop extends React.Component {
               fontSize: '14px',
               cursor: 'pointer',
               lineHeight: '32px',
-              color: operateId == 'personCenter' && topicColor,
+              color: operateId === 'personCenter' && topicColor,
             }}
             onMouseEnter={this.hoverOperate.bind(this, 'personCenter')}
           >
@@ -105,7 +105,7 @@ class HeaderTop extends React.Component {
               fontSize: '14px',
               cursor: 'pointer',
               lineHeight: '32px',
-              color: operateId == 'loginout' && topicColor,
+              color: operateId === 'loginout' && topicColor,
             }}
             onMouseEnter={this.hoverOperate.bind(this, 'loginout')}
           >
@@ -119,7 +119,7 @@ class HeaderTop extends React.Component {
                 fontSize: '14px',
                 cursor: 'pointer',
                 lineHeight: '32px',
-                color: operateId == 'topic' && topicColor,
+                color: operateId === 'topic' && topicColor,
               }}
               onMouseEnter={this.hoverOperate.bind(this, 'topic')}
             >
@@ -135,7 +135,7 @@ class HeaderTop extends React.Component {
         {/*logo*/}
         <div className={styles.logo}>
           <p className={styles.logo_img}>
-            <img src={logo} />
+            <img src={logo} alt='logo' />
           </p>
           <p className={styles.logo_title}>
             {window.__NEW_TITLE}
@@ -168,7 +168,7 @@ class HeaderTop extends React.Component {
                     onClick={this.chooseOperate.bind(this)}
                   >
                     <span style={{ color: '#fff' }}>{window.__USERINFO__ ? window.__USERINFO__.name : '张三'}</span>
-                    <Icon style="caret-down" style={{ color: '#fff', marginLeft: '3px' }}></Icon>
+                    <Icon style="caret-down" style={{ color: '#fff', marginLeft: '3px' }} />
                   </p>
                 </Dropdown>
               </Tooltip>

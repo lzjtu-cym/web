@@ -1,5 +1,5 @@
 const path = require('path');
-const { generateTheme,getLessVars } = require('antd-theme-generator');
+const { generateTheme, getLessVars } = require('antd-theme-generator');
 
 const options = {
   stylesDir: path.join(__dirname, './src/styles'),
@@ -17,9 +17,8 @@ const options = {
     '@btn-primary-color',
     '@layout-header-background',
   ],
-  indexFileName: './src/pages/index.ejs',
+  indexFileName: './src/pages/index.html',
   outputFilePath: path.join(__dirname, './public/css/color.less'), //页面引入的主题变量文件
-  customColorRegexArray: [/^fade\(.*\)$/]
 };
 
 generateTheme(options)

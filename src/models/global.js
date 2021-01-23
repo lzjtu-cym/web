@@ -98,7 +98,7 @@ export default {
   },
   subscriptions: {
     getGlobalData(e) {
-      const { dispatch, history } = e;
+      const { dispatch } = e;
       let _token = !!sessionStorage && sessionStorage.token || '';
       let _appid = !!sessionStorage && sessionStorage.appId || '';
       let _tenantId = !!sessionStorage && sessionStorage.tenantId || '';

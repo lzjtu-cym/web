@@ -15,16 +15,16 @@ class HomeWeb extends React.Component {
   // 切换个性椎体
   changeTopic = (color) => {
     this.props.dispatch({ type: 'global/saveTopicColor', params: { color } });
-    window.less
-      .modifyVars({
-        '@primary-color': color,
-        '@link-color': color,
-        '@btn-primary-bg': color,
+    window.less.modifyVars({
+      '@primary-color': color,
+      '@link-color': color,
+      '@btn-primary-bg': color,
+    })
+      .then(() => {
       })
-      .then(() => {})
       .catch(error => {
         message.error('Failed to update theme');
-      })
+      });
   };
 
 
@@ -33,9 +33,6 @@ class HomeWeb extends React.Component {
       <div className={styles.home_web} id='home_web'>
         <Layout>
           <HeaderTop
-            ref={ref => {
-              window.__HeaderTop__ = ref;
-            }}
             {...this.props.global}
             changeTopic={this.changeTopic.bind(this)}
           />
