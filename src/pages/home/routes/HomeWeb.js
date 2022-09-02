@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'dva';
-import { Layout, message } from 'antd';
+import { Layout, message, Breadcrumb } from 'antd';
 import * as styles from './HomeWeb.less';
 import HeaderTop from '../components/layout/HeaderTop';
 
-const { Footer } = Layout;
+const { Footer, Content } = Layout;
 
 class HomeWeb extends React.Component {
 
@@ -14,6 +14,7 @@ class HomeWeb extends React.Component {
 
   // 切换个性椎体
   changeTopic = (color) => {
+    console.log(color)
     this.props.dispatch({ type: 'global/saveTopicColor', params: { color } });
     window.less.modifyVars({
       '@primary-color': color,
@@ -29,6 +30,13 @@ class HomeWeb extends React.Component {
 
 
   render() {
+    if (!window.less) {
+      window.less = {
+        async: false,
+        env: 'production',
+      };
+      document.writeln(`<script type="text/javascript" src="js/less.js"</src` + `ipt>`)
+    }
     return (
       <div className={styles.home_web} id='home_web'>
         <Layout>
@@ -36,8 +44,15 @@ class HomeWeb extends React.Component {
             {...this.props.global}
             changeTopic={this.changeTopic.bind(this)}
           />
-          <div className={styles.home_web_content}>Content</div>
-          <Footer>Footer</Footer>
+          <Content style={{ padding: '0 50px' }}>
+            <Breadcrumb style={{ margin: '16px 0' }}>
+              <Breadcrumb.Item>Home</Breadcrumb.Item>
+              <Breadcrumb.Item>List</Breadcrumb.Item>
+              <Breadcrumb.Item>App</Breadcrumb.Item>
+            </Breadcrumb>
+            <div className="site-layout-content">Content</div>
+          </Content>
+          <Footer style={{bottom: '0px', position: 'absolute',width:'100%',textAlign:'center'}}>Ant Design ©2018 Created by Ant UED</Footer>
         </Layout>
       </div>
     );

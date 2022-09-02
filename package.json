@@ -4,14 +4,14 @@
   "version": "1.0.0",
   "description": "React + umi + antd +dva",
   "scripts": {
-    "start": "set port=8888 && node color && umi dev",
+    "start": "set port=8888 && node color.js && umi dev",
     "build": "node color && umi build",
     "test": "umi test",
     "lint": "eslint {src,mock,tests}/**/*.{ts,tsx} --fix",
     "precommit": "lint-staged"
   },
   "dependencies": {
-    "antd": "^3.19.5",
+    "antd": "^3.26.5",
     "axios": "^0.21.1",
     "dva": "^2.6.0-beta.6",
     "jwt-decode": "^3.1.2",
@@ -37,7 +37,7 @@
     "less-loader": "^7.3.0",
     "lint-staged": "^7.2.2",
     "react-test-renderer": "^16.7.0",
-    "umi": "^2.9.0",
+    "umi": "^2.12.7",
     "umi-plugin-react": "^1.15.8",
     "umi-types": "^0.3.0"
   },

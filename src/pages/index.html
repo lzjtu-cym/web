@@ -5,12 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<link rel="stylesheet/less" type="text/css" href="/public/css/color.less" rel="external nofollow" />
+<link rel="stylesheet/less" type="text/css" href="/css/color.less" rel="external nofollow" />
 <script>
-  window.less = {
-    async: false,
-    env: 'production',
-  };
+  if (!window.less) {
+    window.less = {
+      async: false,
+      env: 'production',
+    };
+    document.writeln(`<script type="text/javascript" src="/js/less.js"</src` + `ipt>`)
+  }
 </script>
 <script
   type="text/javascript"
