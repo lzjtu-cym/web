@@ -21,7 +21,7 @@ export default {
   subscriptions: {
     setup({ dispatch, history }) {
       return history.listen(({pathname,search}) => {
-        if (pathname === '/home/routes/HomeWeb') {
+        if (window.location.pathname === '/home/routes/HomeWeb') {
 
         }
       })

@@ -31,7 +31,7 @@ export default {
           },
         });
       } else {
-        cf.customeNotice({type: 'error', message: res.message});
+        cf.customNotice({type: 'error', message: res.message});
       }
     },
 
@@ -40,7 +40,7 @@ export default {
   subscriptions: {
     setup({ dispatch, history }) {
       return history.listen(({pathname,search}) => {
-        if (pathname === '/userInfo/routes/userInfoPage') {
+        if (window.location.pathname === '/userInfo/routes/userInfoPage') {
 
         }
       })
