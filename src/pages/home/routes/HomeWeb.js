@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'dva';
-import { Layout, message, Breadcrumb, ConfigProvider } from 'antd';
+import { Layout, message, Breadcrumb } from 'antd';
 import * as styles from './HomeWeb.less';
 import HeaderTop from '../components/layout/HeaderTop';
-import zh_CN from 'antd/es/locale-provider/zh_CN';
 
 const { Footer, Content } = Layout;
 
@@ -32,7 +31,6 @@ class HomeWeb extends React.Component {
 
   render() {
     return (
-      <ConfigProvider locale={zh_CN}>
       <div className={styles.home_web} id='home_web'>
         <Layout>
           <HeaderTop
@@ -50,7 +48,6 @@ class HomeWeb extends React.Component {
           <Footer style={{bottom: '0px', position: 'absolute',width:'100%',textAlign:'center'}}>Ant Design ©2018 Created by Ant UED</Footer>
         </Layout>
       </div>
-      </ConfigProvider>
     );
   }
 }
