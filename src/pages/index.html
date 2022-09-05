@@ -5,7 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-  <div id="root" style="height: 100%;"></div>
+<link rel="stylesheet/less" type="text/css" href="/css/color.less" rel="external nofollow" />
+<script>
+  if (!window.less) {
+    window.less = {
+      async: false,
+      env: 'production',
+    };
+    document.writeln(`<script type="text/javascript" src="/js/less.js"</src` + `ipt>`)
+  }
+</script>
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js"
+></script>
+<div id="root" style="height: 100%;"></div>
 </body>
 
 </html>
+

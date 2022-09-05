@@ -1,4 +1,6 @@
-import { Icon, notification } from 'antd';
+import { ExclamationCircleOutlined } from '@ant-design/icons';
+import { notification } from 'antd';
+import React from 'react';
 
 export function customNotice({type, message, description, duration = 3}) {
   notification.config({
@@ -6,7 +8,7 @@ export function customNotice({type, message, description, duration = 3}) {
   });
   if (type === 'success') {
     notification.success({
-      icon: <Icon type='check-cricle' style={{color: '#52c41a'}} />,
+      icon: <ExclamationCircleOutlined type='check-cricle' style={{color: '#52c41a'}} />,
       message,
       description,
       duration,
@@ -17,7 +19,7 @@ export function customNotice({type, message, description, duration = 3}) {
     });
   } else if (type === 'error') {
     notification.success({
-      icon: <Icon type='close-cricle' style={{color: '#da350f'}} />,
+      icon: <ExclamationCircleOutlined type='close-cricle' style={{color: '#da350f'}} />,
       message,
       description,
       duration,
@@ -28,7 +30,7 @@ export function customNotice({type, message, description, duration = 3}) {
     });
   } else {
     notification.success({
-      icon: <Icon type='info-cricle' style={{color: '#1890ff'}} />,
+      icon: <ExclamationCircleOutlined type='info-cricle' style={{color: '#1890ff'}} />,
       message,
       description,
       duration,

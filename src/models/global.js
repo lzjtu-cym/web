@@ -1,4 +1,5 @@
 import jwtDecode from 'jwt-decode';
+import * as homeConfig from 'src/pages/home/config/homeConfig'
 
 export default {
   /** 命名空间，与文件名保持一致，供route关联 */
@@ -14,15 +15,7 @@ export default {
     userIndentity: '', // 用户身份
     currentPage: 0,
     pageSize: 10,
-    topicList: [ //主题
-      { name: '默认蓝', color: '#1890ff', key:'antd' },
-      { name: '叶兰绿', color: '#1cc392', key:'green'  },
-      { name: '赤城红', color: '#eb3149', key:'red'  },
-      { name: '玉烟紫', color: '#9958dc', key:'purple'  },
-      { name: '芙蕖粉', color: '#f7889c', key:'pink'  },
-      { name: '露莓黑', color: '#304269', key:'darken'  },
-      { name: '经典蓝', color: '#114f8e', key:'blue'  },
-    ],
+    topicList: homeConfig.default.topicList || [],
     topicColor: '#1890ff',
   },
   reducers: {
@@ -32,9 +25,9 @@ export default {
   },
 
   effects: {
-    // 获取token
-    * getToken({ params }, { call, put }) {
-      yield put({ type: 'setToken', payload: { ...params } });
+    // init
+    * init({ params }, { call, put }) {
+      yield put({ type: 'updateState', payload: { ...params } });
     },
     // 切换主题
     * saveTopicColor({ params }, { call, put, select }) {
@@ -71,15 +64,7 @@ export default {
         userIndentity: '', // 用户身份
         currentPage: 0,
         pageSize: 10,
-        topicList: [ //主题
-          { name: '默认蓝', color: '#1890ff', key:'antd' },
-          { name: '叶兰绿', color: '#1cc392', key:'green'  },
-          { name: '赤城红', color: '#eb3149', key:'red'  },
-          { name: '玉烟紫', color: '#9958dc', key:'purple'  },
-          { name: '芙蕖粉', color: '#f7889c', key:'pink'  },
-          { name: '露莓黑', color: '#304269', key:'darken'  },
-          { name: '经典蓝', color: '#114f8e', key:'blue'  },
-        ],
+        topicList: homeConfig.default.topicList || [],
         topicColor: '#1890ff',
       };
       sessionStorage.token && (delete sessionStorage.token);
@@ -100,13 +85,13 @@ export default {
     getGlobalData(e) {
       const { dispatch } = e;
       let _token = !!sessionStorage && sessionStorage.token || '';
-      let _appid = !!sessionStorage && sessionStorage.appId || '';
+      let _appId = !!sessionStorage && sessionStorage.appId || '';
       let _tenantId = !!sessionStorage && sessionStorage.tenantId || '';
       let _roleId = !!sessionStorage && sessionStorage.roleId || '';
       let _userInfo = !!sessionStorage && sessionStorage.accountInfo && JSON.parse(sessionStorage.accountInfo) || {};
       dispatch({
-        type: 'getToken',
-        params: { token: _token, appId: _appid, tenantId: _tenantId, roleId: _roleId, userInfo: _userInfo },
+        type: 'init',
+        params: { token: _token, appId: _appId, tenantId: _tenantId, roleId: _roleId, userInfo: _userInfo },
       });
       !!_token && dispatch({ type: 'getUserInfo', params: { token: _token } });
     },
@@ -114,6 +99,8 @@ export default {
       return history.listen(({pathname,search}) => {
         if (pathname === '/') {
           window.__NEW_TITLE = "测试项目";
+          localStorage.topicColor = '#1890ff';
+          window.__TOPIC_COLOR = '#1890ff';
         }
       })
     },

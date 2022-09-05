@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'dva';
-import { Tooltip, Dropdown, Icon, Popover } from 'antd';
+import { CaretDownOutlined, CaretRightOutlined, CheckOutlined } from '@ant-design/icons';
+import { Tooltip, Dropdown, Popover } from 'antd';
 import { Menu } from '../../components';
 import styles from './header.less';
 import logo from '../../assets/icon/logo.jpg';
-
 
 class HeaderTop extends React.Component {
   constructor(props) {
@@ -69,7 +69,7 @@ class HeaderTop extends React.Component {
           >
             {item.name}
             {topicColor === item.color &&
-            <Icon type="check" style={{ float: 'right', marginTop: '8px', fontSize: '12px' }} />}
+            <CheckOutlined style={{ float: 'right', marginTop: '8px', fontSize: '12px' }} />}
           </li>,
         )}
       </ul>
@@ -124,7 +124,7 @@ class HeaderTop extends React.Component {
               onMouseEnter={this.hoverOperate.bind(this, 'topic')}
             >
               个性主题
-              <Icon type="caret-right" style={{ color: '#ccc', fontSize: '10px' }} />
+              <CaretRightOutlined style={{ color: '#ccc', fontSize: '10px' }} />
             </p>
           </Popover>
         </div>
@@ -168,7 +168,7 @@ class HeaderTop extends React.Component {
                     onClick={this.chooseOperate.bind(this)}
                   >
                     <span style={{ color: '#fff' }}>{window.__USERINFO__ ? window.__USERINFO__.name : '张三'}</span>
-                    <Icon style="caret-down" style={{ color: '#fff', marginLeft: '3px' }} />
+                    <CaretDownOutlined style={{ color: '#fff', marginLeft: '3px' }} />
                   </p>
                 </Dropdown>
               </Tooltip>
